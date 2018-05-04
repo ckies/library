@@ -27,7 +27,7 @@ describe('cks', () => {
 
   test('.deny()', () => {
     CKies.deny(CookieType.NECESSARY)
-    expect(document.cookie).toContain('ckies_necessary=deny')
+    expect(document.cookie).not.toContain('ckies_necessary=deny')
 
     CKies.deny(CookieType.FUNCTIONAL)
     expect(document.cookie).toContain('ckies_functional=deny')
@@ -35,18 +35,23 @@ describe('cks', () => {
 
   test('.use()', () => {
     CKies.deny(CookieType.NECESSARY)
-    expect(CKies.use(CookieType.NECESSARY)).toBe(false)
+    expect(CKies.use(CookieType.NECESSARY)).toBe(true)
+    expect(CKies.useNecessary()).toBe(true)
 
     CKies.allow(CookieType.NECESSARY)
     expect(CKies.use(CookieType.NECESSARY)).toBe(true)
+    expect(CKies.useNecessary()).toBe(true)
 
     CKies.allow(CookieType.FUNCTIONAL)
     expect(CKies.use(CookieType.FUNCTIONAL)).toBe(true)
+    expect(CKies.useFunctional()).toBe(true)
 
     CKies.allow(CookieType.MARKETING)
     expect(CKies.use(CookieType.MARKETING)).toBe(true)
+    expect(CKies.useMarketing()).toBe(true)
 
     CKies.deny(CookieType.MARKETING)
     expect(CKies.use(CookieType.MARKETING)).toBe(false)
+    expect(CKies.useMarketing()).toBe(false)
   })
 })

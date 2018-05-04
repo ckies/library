@@ -9,6 +9,10 @@ const CONFIG_EXPIRES = 365 * 24 * 60 * 60 * 1000
 export class CKies {
   // Check if CookieType should be used
   public static use(type: CookieType) {
+    if (type === CookieType.NECESSARY) {
+      return true
+    }
+
     return getCookie(this.key(type)) === CookieOptions.ALLOW
   }
 
@@ -27,7 +31,9 @@ export class CKies {
 
   // Deny usage for CookieType
   public static deny(type: CookieType) {
-    this.set(type, CookieOptions.DENY)
+    if (type !== CookieType.NECESSARY) {
+      this.set(type, CookieOptions.DENY)
+    }
   }
 
   // Allow usage for CookieType
@@ -47,7 +53,7 @@ export class CKies {
 
   // Wrapper to check if necesserary cookies can be used
   public static useNecessary() {
-    return true
+    return this.use(CookieType.NECESSARY)
   }
 
   // Wrapper to check if functional cookies can be used
