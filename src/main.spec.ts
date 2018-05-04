@@ -1,5 +1,7 @@
 import CKies, { CookieTypes } from './main'
 
+declare var document: Document;
+
 describe('cks', () => {
   test('.key() to generate cookie names', () => {
     expect(CKies.key(CookieTypes.FUNCTIONAL)).toBe('ckies_functional')
@@ -17,18 +19,18 @@ describe('cks', () => {
 
   test('.allow()', () => {
     CKies.allow(CookieTypes.MARKETING)
-    expect(global.document.cookie).toContain('ckies_marketing=allow')
+    expect(document.cookie).toContain('ckies_marketing=allow')
 
     CKies.allow(CookieTypes.PERFORMANCE)
-    expect(global.document.cookie).toContain('ckies_performance=allow')
+    expect(document.cookie).toContain('ckies_performance=allow')
   })
 
   test('.deny()', () => {
     CKies.deny(CookieTypes.NECESSARY)
-    expect(global.document.cookie).toContain('ckies_necessary=deny')
+    expect(document.cookie).toContain('ckies_necessary=deny')
 
     CKies.deny(CookieTypes.FUNCTIONAL)
-    expect(global.document.cookie).toContain('ckies_functional=deny')
+    expect(document.cookie).toContain('ckies_functional=deny')
   })
 
   test('.use()', () => {
