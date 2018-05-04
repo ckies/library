@@ -1,6 +1,6 @@
 import CKies, { CookieTypes } from './main'
 
-declare var document: Document;
+declare var document: Document
 
 describe('cks', () => {
   test('.key() to generate cookie names', () => {
