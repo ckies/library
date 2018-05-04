@@ -1,9 +1,10 @@
 {
   "name": "@ckies/library",
   "description": "Library to check for Cookie Settings",
-  "main": "./lib/main.js",
+  "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
+    "prebuild": "rm -rf ./dist",
     "test": "jest",
     "lint": "tslint src/**/*.ts",
     "build": "tsc"

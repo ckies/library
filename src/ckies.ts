@@ -1,30 +1,19 @@
 import { getCookie, setCookie } from './helpers'
-
-export enum CookieTypes {
-  NECESSARY = 'necessary',
-  FUNCTIONAL = 'functional',
-  PERFORMANCE = 'performance',
-  MARKETING = 'marketing'
-}
-
-export enum CookieOptions {
-  ALLOW = 'allow',
-  DENY = 'deny'
-}
+import { CookieOptions, CookieType } from './types'
 
 const COOKIE_SHOW_BANNER = 'ckies_showBanner'
 const COOKIE_SHOW_BANNER_VALUE = 'nope'
 
 const CONFIG_EXPIRES = 365 * 24 * 60 * 60 * 1000
 
-export default class CKies {
+export class CKies {
   // Check if CookieType should be used
-  public static use(type: CookieTypes) {
+  public static use(type: CookieType) {
     return getCookie(this.key(type)) === CookieOptions.ALLOW
   }
 
   // Get cookie name for CookieType
-  public static key(type: CookieTypes) {
+  public static key(type: CookieType) {
     return `ckies_${type}`
   }
 
@@ -37,17 +26,17 @@ export default class CKies {
   }
 
   // Deny usage for CookieType
-  public static deny(type: CookieTypes) {
+  public static deny(type: CookieType) {
     this.set(type, CookieOptions.DENY)
   }
 
   // Allow usage for CookieType
-  public static allow(type: CookieTypes) {
+  public static allow(type: CookieType) {
     this.set(type, CookieOptions.ALLOW)
   }
 
   // Set cookie for CookieType
-  public static set(type: CookieTypes, option: CookieOptions) {
+  public static set(type: CookieType, option: CookieOptions) {
     setCookie(this.key(type), option, this.getExpireDate())
   }
 
@@ -63,16 +52,16 @@ export default class CKies {
 
   // Wrapper to check if functional cookies can be used
   public static useFunctional() {
-    return this.use(CookieTypes.FUNCTIONAL)
+    return this.use(CookieType.FUNCTIONAL)
   }
 
   // Wrapper to check if performance cookies can be used
   public static usePerformance() {
-    return this.use(CookieTypes.PERFORMANCE)
+    return this.use(CookieType.PERFORMANCE)
   }
 
   // Wrapper to check if marketing cookies can be used
   public static useMarketing() {
-    return this.use(CookieTypes.MARKETING)
+    return this.use(CookieType.MARKETING)
   }
 }
