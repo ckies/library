@@ -1,0 +1,45 @@
+{
+  "name": "@ckies/library",
+  "description": "Library to check for Cookie Settings",
+  "main": "./lib/main.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint src/**/*.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckies/library.git"
+  },
+  "keywords": [],
+  "author": "Cookies.WTF <mail@cookies.wtf>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ckies/library/issues"
+  },
+  "homepage": "https://github.com/ckies/library#readme",
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/node": "^10.0.3",
+    "dot-json": "^1.0.4",
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.4",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
