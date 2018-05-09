@@ -1,3 +1,7 @@
-export { getCookie, setCookie } from './helpers'
-export { CookieType, CookieOptions } from './types'
-export { CKies } from './ckies'
+export { Cookie } from './lib/Cookie'
+
+export {
+  CKies,
+  CookieOptions,
+  CookieType
+} from './lib/CKies'
