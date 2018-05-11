@@ -1,7 +1,7 @@
 export { Cookie } from './lib/Cookie'
 
 export {
-  CKies,
+  CKies as ckies,
   CookieOptions,
   CookieType
 } from './lib/CKies'

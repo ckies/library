@@ -1,4 +1,4 @@
-import { Cookie } from '../../src/lib/Cookie'
+import { Cookie } from '../../src'
 
 describe('Cookie', () => {
   describe('set()', () => {

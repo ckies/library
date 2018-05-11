@@ -1,8 +1,6 @@
-import {
-  CKies,
-  CONFIG_EXPIRATION,
-  CookieType
-} from '../../src/lib/CKies'
+import { ckies as CKies, CookieType } from '../../src'
+import { CONFIG_EXPIRATION } from '../../src/lib/CKies'
+
 
 describe('CKies', () => {
   describe('CONFIGE_EXPIRATION', () => {
