@@ -5,9 +5,13 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf ./dist",
+    "prebuild:library": "rm -rf ./dist",
+    "prebuild:browser": "rm -rf ./dist/browser",
     "test": "jest",
     "lint": "tslint src/**/*.ts",
-    "build": "tsc"
+    "build": "yarn build:library; yarn build:browser",
+    "build:library": "tsc", 
+    "build:browser": "webpack"
   },
   "repository": {
     "type": "git",
@@ -26,8 +30,11 @@
     "dot-json": "^1.0.4",
     "jest": "^22.4.3",
     "ts-jest": "^22.4.4",
+    "ts-loader": "^4.3.0",
     "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
   },
   "jest": {
     "transform": {
