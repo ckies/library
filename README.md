@@ -1,6 +1,6 @@
 # Library
 
-Generic approach to offer a tooling for GDPR-compliant cookie handling. Use `@ckies/library` in your JavaScript or TypeScript projects, or use it as a drop-in solution for static projects.
+Approach to offer a generic tooling for GDPR-compliant cookie handling. Use `@ckies/library` in your JavaScript or TypeScript projects, or use it as a drop-in solution for static projects.
 
 ## Usage
 
