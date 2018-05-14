@@ -59,7 +59,7 @@ jobs:
 
       - run:
           name: Build
-          command: yarn build:library
+          command: yarn build
 
       - persist_to_workspace:
           root: ~/repo
