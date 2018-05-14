@@ -1,3 +1,3 @@
-import { CKies } from '../lib/CKies'
+import { ckies } from '../'
 
-module.exports = CKies
+module.exports = ckies

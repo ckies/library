@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist/'),
     filename: 'ckies.min.js',
-    library: 'CKies',
+    library: 'ckies',
     libraryTarget: 'window'
   },
   resolve: {

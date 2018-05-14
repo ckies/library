@@ -15,8 +15,16 @@
     "type": "git",
     "url": "git+https://github.com/ckies/library.git"
   },
-  "keywords": [],
-  "author": "Cookies.WTF <mail@cookies.wtf>",
+  "keywords": [
+    "cookies",
+    "gdpr",
+    "privacy",
+    "builder",
+    "policy",
+    "settings",
+    "browser"
+  ],
+  "author": "Sebastian Müller <code@sbstjn.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ckies/library/issues"
