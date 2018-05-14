@@ -4,7 +4,7 @@ module.exports = {
   mode: "production",
   entry: "./src/browser/ckies.ts",
   output: {
-    path: path.resolve(__dirname, 'dist/browser/'),
+    path: path.resolve(__dirname, 'dist/'),
     filename: 'ckies.min.js',
     library: 'CKies',
     libraryTarget: 'window'

@@ -23,10 +23,12 @@
     "declaration": true
   },
   "include": [
-    "src/**/*"
+    "src/index.ts",
+    "src/lib/*"
   ],
   "exclude": [
     "node_modules/**/*",
-    "src/**/*.spec.ts"
+    "src/**/*.spec.ts",
+    "src/browser/ckies.ts"
   ]
 }
