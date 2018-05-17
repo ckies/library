@@ -80,6 +80,8 @@ export class CKies {
 
   // Check if mode is OPT_IN
   private static isOptIn() {
+    /* tslint:disable */
     return window.hasOwnProperty('CKIES_OPTIN') && window['CKIES_OPTIN'] === true
+    /* tslint:enable */
   }
 }
