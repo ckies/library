@@ -4,7 +4,7 @@ Approach to offer a generic tooling for GDPR-compliant cookie handling. Use `@ck
 
 ### Mode
 
-The library works in **opt-out** mode per default. If you set `window.CKIES_OPTIN` to `true`, all cookies **but necessary** ones are denied per default. 
+The **opt-out** mode is enabled per default. If you set `window.CKIES_OPTIN` to `true`, all cookies **but necessary** ones are denied per default. 
 
 ## Usage
 
