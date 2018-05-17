@@ -1,8 +1,15 @@
 import { ckies as CKies, CookieType } from '../../src'
 import { CONFIG_EXPIRATION } from '../../src/lib/CKies'
 
-
 describe('CKies', () => {
+  beforeEach(() => {
+    delete window['CKIES_OPTIN']
+
+    document.cookie.split(';').forEach(
+      cookie => document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`)
+    )
+  })
+
   describe('CONFIGE_EXPIRATION', () => {
     it('should be roughly one year', () => {
       expect(CONFIG_EXPIRATION).toBe(
@@ -65,6 +72,36 @@ describe('CKies', () => {
   })
 
   describe('.use()', () => {
+    it('return true per default', () => {
+      expect(CKies.useNecessary()).toBe(true)
+      expect(CKies.useFunctional()).toBe(true)
+      expect(CKies.usePerformance()).toBe(true)
+      expect(CKies.useMarketing()).toBe(true)
+    })
+
+    it('support opt-in per global option', () => {
+      window['CKIES_OPTIN'] = true
+
+      expect(CKies.useNecessary()).toBe(true)
+      expect(CKies.useFunctional()).toBe(false)
+      expect(CKies.usePerformance()).toBe(false)
+      expect(CKies.useMarketing()).toBe(false)
+
+      window['CKIES_OPTIN'] = false
+
+      expect(CKies.useNecessary()).toBe(true)
+      expect(CKies.useFunctional()).toBe(true)
+      expect(CKies.usePerformance()).toBe(true)
+      expect(CKies.useMarketing()).toBe(true)
+
+      delete window['CKIES_OPTIN']
+
+      expect(CKies.useNecessary()).toBe(true)
+      expect(CKies.useFunctional()).toBe(true)
+      expect(CKies.usePerformance()).toBe(true)
+      expect(CKies.useMarketing()).toBe(true)
+    })
+
     it('return true for necessary cookies', () => {
       CKies.allow(CookieType.NECESSARY)
       expect(CKies.use(CookieType.NECESSARY)).toBeTruthy()

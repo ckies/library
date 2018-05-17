@@ -34,7 +34,11 @@ export class CKies {
       return true
     }
 
-    return Cookie.get(this.key(type)) === CookieOptions.ALLOW
+    return this.isOptIn() ? (
+      Cookie.get(this.key(type)) === CookieOptions.ALLOW
+    ) : (
+      Cookie.get(this.key(type)) !== CookieOptions.DENY
+    )
   }
 
   // Deny usage for CookieType
@@ -72,5 +76,10 @@ export class CKies {
     if (type !== CookieType.NECESSARY) {
       Cookie.set(this.key(type), option, this.getExpireDate())
     }
+  }
+
+  // Check if mode is OPT_IN
+  private static isOptIn() {
+    return window.hasOwnProperty('CKIES_OPTIN') && window['CKIES_OPTIN'] === true
   }
 }
