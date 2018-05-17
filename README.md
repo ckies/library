@@ -2,6 +2,10 @@
 
 Approach to offer a generic tooling for GDPR-compliant cookie handling. Use `@ckies/library` in your JavaScript or TypeScript projects, or use it as a drop-in solution for static projects.
 
+### Modes
+
+Per default `@ckies/library` works in **OPT-OUT** mode, all cookies are allowed with this configuration. If you set `window.CKIES_OPTIN` to `true`, all cookies **but necessary** ones are denied per default.
+
 ## Usage
 
 ### Custom Build Process
