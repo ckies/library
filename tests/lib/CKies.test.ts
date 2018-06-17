@@ -1,13 +1,10 @@
 import { ckies as CKies, CookieType } from '../../src'
-import { CONFIG_EXPIRATION } from '../../src/lib/CKies'
+import { CONFIG_EXPIRATION } from '../../src/lib/Cookie'
+import { removeAllCookies } from '../helpers/'
 
 describe('CKies', () => {
   beforeEach(() => {
-    delete window['CKIES_OPTIN']
-
-    document.cookie.split(';').forEach(
-      cookie => document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`)
-    )
+    removeAllCookies()
   })
 
   describe('CONFIGE_EXPIRATION', () => {

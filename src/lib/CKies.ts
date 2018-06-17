@@ -1,4 +1,5 @@
-import { Cookie } from './Cookie'
+import { Cookie, PREFIX, CONFIG_EXPIRATION } from './Cookie'
+import { Banner } from './Banner'
 
 export enum CookieType {
   NECESSARY = 'necessary',
@@ -12,8 +13,6 @@ export enum CookieOptions {
   DENY = 'deny'
 }
 
-export const CONFIG_EXPIRATION = 365 * 24 * 60 * 60 * 1000
-
 export class CKies {
   // Get expiration date for new cookies
   public static getExpireDate() {
@@ -25,7 +24,7 @@ export class CKies {
 
   // Get cookie name for CookieType
   public static key(type: CookieType) {
-    return `ckies_${type}`
+    return `${PREFIX}_${type}`
   }
 
   // Check if CookieType should be used

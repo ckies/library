@@ -1,3 +1,6 @@
-import { ckies } from '../'
+import { CKies } from '../lib/CKies'
+import { Banner } from '../lib/Banner'
 
-module.exports = ckies
+(CKies as any).Banner = Banner
+
+module.exports = CKies

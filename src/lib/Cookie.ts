@@ -1,3 +1,6 @@
+export const CONFIG_EXPIRATION = 365 * 24 * 60 * 60 * 1000
+export const PREFIX = 'ckies'
+
 export class Cookie {
   public static get = (name: string) => {
     const data = `; ${document.cookie}`.split(`; ${name}=`)
